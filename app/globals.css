@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Fraunces', serif;
+}
+
+:root { color-scheme: light; --background: #fffcff; --foreground: #382451; --primary: #382451; --primary-foreground: #fff; --border: #eadff3; --ring: #a78ad9; --radius: 0.75rem; }
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground antialiased; font-family: 'DM Sans', sans-serif; }
+  ::selection { background: #e9d5ef; color: #382451; }
+}
+
+@utility font-display { font-family: 'Fraunces', serif; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
